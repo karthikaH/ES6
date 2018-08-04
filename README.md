@@ -1,2 +1,2 @@
 # ES6
-consensus with ES6
+Consensus with ES6
