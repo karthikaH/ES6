@@ -62,3 +62,16 @@ console.log(smallPumpkin2 instanceof Vegetables); //DOUBT
 console.log(smallPumpkin instanceof Object);
 
 console.dir(Vegetables.prototype.isPrototypeOf(smallPumpkin));
+
+//ES6QUESTION: 
+class Point {
+  constructor(x, y) {
+    this.x = x, this.y = y
+  }
+  add(other) {
+    return new Point(this.x + other.x, this.y + other.y)
+  }
+}
+
+var fakePoint = Object.create(Point.prototype)
+console.log(fakePoint instanceof Point) //true
