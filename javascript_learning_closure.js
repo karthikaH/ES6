@@ -53,3 +53,64 @@ if (true){
 console.log(sayHi())
 console.dir(sayHi)
 //here its block scoping
+
+let batmintonAmt = () => {
+   let hrsPlayed = 3;
+   return () => {
+      return hrsPlayed*300; 
+   }
+}
+
+console.dir(batmintonAmt);
+console.dir(batmintonAmt());
+console.log(batmintonAmt());
+
+//it will have closure for values which are used
+//and not the one which is not used 
+
+
+let batmintonAmt2 = () => {
+   let hrsPlayed = 3;
+   let fixedRt = "300rs";
+   return () => {
+      return hrsPlayed*300; 
+   }
+}
+
+console.dir(batmintonAmt2());
+// here closure is only on hrsPlayed
+
+
+//common interview question
+
+//below is the example of functional scope
+//here same i reference value is being changed throughout
+//the set timout will be pushed to call queue 
+//by the time function is executed the i's value is 3
+for(var i = 0; i< 3; i++ ){
+  setTimeout(() => {
+      console.log(i);
+  }, 1000)
+}
+console.log("loop cycle completed")
+
+//immediatelly invoked function expressions can be used to prevent
+//this from happening
+for(var i = 0; i< 3; i++ ){
+  ((i) => {setTimeout(() => {
+      console.log(i);
+  }, 1000)
+  })(i);
+}
+console.log("loop cycle completed")
+
+//below is the example for Block scope as we use let instead of var
+//as every loop ends a new i will be created, 3 different i are present, each i for each block
+//hence there will be closure over it
+
+for(let i = 0; i< 3; i++ ){
+  setTimeout(() => {
+      console.log(i);
+  }, 1000)
+}
+console.log("loop cycle completed")
