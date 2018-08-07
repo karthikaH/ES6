@@ -114,3 +114,28 @@ for(let i = 0; i< 3; i++ ){
   }, 1000)
 }
 console.log("loop cycle completed")
+
+//NEW learnings
+
+for (let i=0; i<10; i++){
+  setTimeout(function(){
+    console.log(i);
+  }, 100)
+}
+//ans: 0 1 2 3 4 5 6 7 8 9
+
+for (let i=0; i<10; i++){
+  setTimeout(function(i){
+    console.log(i);
+  }, 100)
+}
+
+//ans: undefined undefined undefined.....10 times
+
+for (var i=0; i<10; i++){
+  ((i) => setTimeout(function(){
+    console.log(i);
+  }, 100))();// i not being passed here
+}
+//ans: undefined undefined undefined.....10 times
+//this is because i is not available 
