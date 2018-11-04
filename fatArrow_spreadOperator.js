@@ -78,9 +78,40 @@ var aFunc2 = (...n) => {
 aFunc2(1,2,3,4,5);
 //output: 4
 
+// some more points on spread operator
+
+let  x = [1,2,3,4];
+let y = x; // its not a copy, its a reference
+
+y.push(6);
+console.log(x);
+console.log(y);
+
+let  x1 = [1,2,3,4];
+let y1 = Object.assign([], x1); //creates shallow copy, doesnot copy prototypes 
+
+y1.push(8);
+console.log(x1);
+console.log(y1);
+
+
+let  x2 = [1,2,3,4];
+let y2 =  [...x2]; //same as Object.assign
+
+y2.push(10);
+console.log(x2);
+console.log(y2);
+
+//output:
+//[1,2,3,4,6] 
+//[1,2,3,4,6] 
+//[1,2,3,4] 
+//[1,2,3,4,8] 
+//[1,2,3,4] 
+//[1,2,3,4,10] 
+
 
 // points to remember regarding arguments[]
-
 // arguments is array like object -- so it does not have all the properties of an Array
 
 var aFunction = function(){
