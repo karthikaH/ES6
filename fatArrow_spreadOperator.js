@@ -110,6 +110,15 @@ console.log(y2);
 //[1,2,3,4] 
 //[1,2,3,4,10] 
 
+//spread operator can help in merging two arrays
+console.log([...x1,...y1]);
+//spread operator can help in merging two arrays
+console.log(x2.concat(...y2));
+//output
+//[1,2,3,4,1,2,3,4,8] 
+//[1,2,3,4,1,2,3,4,10] 
+
+
 
 // points to remember regarding arguments[]
 // arguments is array like object -- so it does not have all the properties of an Array
