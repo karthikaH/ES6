@@ -77,3 +77,26 @@ var aFunc2 = (...n) => {
 
 aFunc2(1,2,3,4,5);
 //output: 4
+
+
+// points to remember regarding arguments[]
+
+// arguments is array like object -- so it does not have all the properties of an Array
+
+var aFunction = function(){
+  console.log(arguments);
+  var args = Array.prototype.slice.call(arguments,0);
+  var args2 = [].slice.call(arguments,0);
+  console.log(args);
+  console.log(args2);
+}
+aFunction(1,3,5,7,9);
+
+// Output
+// {"0":1,"1":3,"2":5,"3":7,"4":9} 
+// [1,3,5,7,9] 
+//[1,3,5,7,9] 
+//
+//
+//Spread operator  - creates an array
+//if spread operators are part of function arguments they are called Rest arguments - (1,2,4, ...n)
