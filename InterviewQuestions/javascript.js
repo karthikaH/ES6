@@ -48,4 +48,17 @@ const countDict = words.reduce((acc, word) => {
 }, {})
 
 console.log(countDict);
-// {"hi":1,"hello":2,"Good":1,"Morning":1,"bye":3} 
+// {"hi":1,"hello":2,"Good":1,"Morning":1,"bye":3}
+
+// Question 5
+let newArr = {};
+newArr["0"] = "kar";
+let zero = "0";
+newArr.zero = "0";
+console.log(newArr[zero]); //kar
+console.log(newArr.zero); // 0
+
+// Question 6
+// how to flatten this array
+const [a,b,[c,d,[e]]] = [1,2,[3,4,[5]]];                      
+console.log([a,b,c,d,e]);  //[1,2,3,4,5] 
