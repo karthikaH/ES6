@@ -78,3 +78,18 @@ const flowers = [
 
 let [{color: first}, {color: second}] = flowers;
 console.log(first, second); //Red White
+
+// Question 8
+
+let _ = {
+  each(arr, cb) {
+    let newArr = [];
+    for(let i=0; i<arr.length; i++){
+      newArr.push(cb(arr[i]));
+    }
+    return newArr;
+  }
+}
+
+_.each(['one', 'Two', 'three'], function(val){console.log(val)}) 
+// One Two Three
