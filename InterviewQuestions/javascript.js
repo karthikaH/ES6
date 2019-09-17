@@ -62,3 +62,19 @@ console.log(newArr.zero); // 0
 // how to flatten this array
 const [a,b,[c,d,[e]]] = [1,2,[3,4,[5]]];                      
 console.log([a,b,c,d,e]);  //[1,2,3,4,5] 
+
+// Question 7
+const flowers = [
+  {
+    name: 'Rose',
+    color: 'Red',
+  },
+    {
+    name: 'Lily',
+    color: 'White',
+  },
+  ]
+// destructure colors white & red
+
+let [{color: first}, {color: second}] = flowers;
+console.log(first, second); //Red White
