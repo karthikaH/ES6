@@ -93,3 +93,103 @@ let _ = {
 
 _.each(['one', 'Two', 'three'], function(val){console.log(val)}) 
 // One Two Three
+
+// Question 9 
+
+// Reduce how it works
+var _ = {};
+_.reduce = (arr, cb, initVal) => {
+    var acc;
+    if(Array.isArray(arr)){
+      acc = initVal || 0;
+      for(let i=0; i<arr.length; i++){
+         acc = cb(acc, arr[i], i);
+       }
+    } else {
+      acc = initVal || {};
+      const keys = Object.keys(arr);
+      keys.forEach((key) => {
+        acc = cb(acc, arr[key], key);
+      })
+    }
+    return acc;
+  }
+  
+  var reducedVal = _.reduce([1,2,3], (acc, currVal) => {
+    return acc + currVal;
+  }, 2);
+  
+  
+  var reducedObj = _.reduce({"Gary": "Minessota", "Marc": "Minessota", "Ann": "LA"} , (acc, currVal, key) => {
+    (acc[currVal] || (acc[currVal] = [])).push(key);
+    return acc;
+  }, {});
+  
+  console.log(reducedVal);
+  console.log(reducedObj);
+  
+  // application of reduce to find out room with all false
+  const myData = [
+      {
+          rooms: [
+              {kitchen: false},
+              {bathroom: false},
+              {conservatory: true},
+              {dinningRoom: true},
+              {playRoom: false},
+              {library: true}
+          ]
+      },
+      {
+          rooms: [
+              {kitchen: true},
+              {bathroom: false},
+              {conservatory: false},
+              {dinningRoom: false},
+              {playRoom: true},
+              {library: false}
+          ]
+      },
+      {
+          rooms: [
+              {kitchen: false},
+              {bathroom: false},
+              {conservatory: true},
+              {dinningRoom: false},
+              {playRoom: true},
+              {library: false}
+          ]
+      },
+      {
+          rooms: [
+              {kitchen: true},
+              {bathroom: false},
+              {conservatory: false},
+              {dinningRoom: true},
+              {playRoom: false},
+              {library: false}
+          ]
+      }
+  ];
+  
+  const roomsSurvey = _.reduce(myData,(topAcc, data) => {
+     const roomvalues = _.reduce(data.rooms, (acc, currValue) => {
+        const keys = Object.keys(currValue);
+        (acc[keys[0]] || (acc[keys[0]] = [])).push(currValue[keys[0]]);
+        return acc;
+      }, {});
+      Object.keys(roomvalues).forEach(room => (topAcc[room] || (topAcc[room] = [])).push(roomvalues[room][0]));
+      return topAcc;
+   }, {});
+  
+  const noOneRoom = Object.keys(roomsSurvey).filter(room => !roomsSurvey[room].some(value => value));
+  console.log(noOneRoom); // ["bathroom"] 
+  
+  
+  const multiplyInputs = (input) => input.reduce((inputPiece, acc) => inputPiece * acc, 1)
+  console.log(multiplyInputs([4,2,4])) // 32
+  
+  const concatStrings = (input) => input.reduce((inputPiece, acc) => inputPiece + acc, '')
+  console.log(concatStrings(['x','y','z'])) // xyz
+
+
