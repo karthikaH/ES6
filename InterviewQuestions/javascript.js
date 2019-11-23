@@ -192,4 +192,19 @@ _.reduce = (arr, cb, initVal) => {
   const concatStrings = (input) => input.reduce((inputPiece, acc) => inputPiece + acc, '')
   console.log(concatStrings(['x','y','z'])) // xyz
 
+// largest common substring
+const largestpre = (arr) => {
+  const sortedArray = arr.sort();
+  const first = sortedArray[0];
+  const last = sortedArray[arr.length - 1];
+  const firstLength = first.length;
+  let i=0;
+  
+  while(last.includes(first.substring(0, i+1)) && i < firstLength){
+    i++;
+  }
+  return first.substring(0, i);
+}
 
+
+console.log(biggestPre(['hiiiiiiiyaaa','hia','hippe']));
