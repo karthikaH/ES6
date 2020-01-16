@@ -7,10 +7,10 @@ A repo with all the interview questions I have come across in Javascript languag
 * The elusive `this` keyword
 * The ... - Spread & Rest operator
 * The => - Fat Arrow
-* The mind blogging closure
+* The mind blogging Closure
 * The Prototypal Inheritance
 * The `` - Template Strings
 
 ### In Addtion to above ones
 
-* Implementation of Stack, Queue & Linked List Data Structures
+* The basic implementation of Stack, Queue & Linked List Data Structures
